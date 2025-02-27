@@ -6,7 +6,7 @@ g=torch.Generator().manual_seed(2147483647)
 
 class Linear:
     def __init__(self,fan_in,fan_out,bias=True):
-        self.weight=torch.randn([fan_in,fan_out],generator=g) #/fan_in**0.5
+        self.weight=torch.randn([fan_in,fan_out],generator=g)/fan_in**0.5
         self.bias=torch.randn(fan_out) if bias else None
     
     def __call__(self, x):
